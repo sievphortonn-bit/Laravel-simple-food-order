@@ -1,0 +1,227 @@
+/* Override SASS variables here */
+
+/* BULMA COPY VARIABLES */
+
+/* Colors */
+:root {
+    --black: hsl(0deg, 0%, 4%);
+    --black-bis: hsl(0deg, 0%, 7%);
+    --black-ter: hsl(0deg, 0%, 14%);
+    --grey-darker: hsl(0deg, 0%, 21%);
+    --grey-dark: hsl(0deg, 0%, 29%);
+    --grey: hsl(0deg, 0%, 48%);
+    --grey-light: hsl(0deg, 0%, 71%);
+    --grey-lighter: hsl(0deg, 0%, 86%);
+    --grey-lightest: hsl(0deg, 0%, 93%);
+    --white-ter: hsl(0deg, 0%, 96%);
+    --white-bis: hsl(0deg, 0%, 98%);
+    --white: hsl(0deg, 0%, 100%);
+    --orange: hsl(14deg, 100%, 53%);
+    --yellow: hsl(48deg, 100%, 67%);
+    --green: hsl(141deg, 53%, 53%);
+    --turquoise: hsl(171deg, 100%, 41%);
+    --cyan: hsl(204deg, 71%, 53%);
+    --blue: hsl(217deg, 71%, 53%);
+    --purple: hsl(271deg, 100%, 71%);
+    --red: hsl(348deg, 86%, 61%);
+    --text: var(--grey-dark);
+    --text-light: var(--grey);
+    --text-strong: var(--grey-darker);
+    --content-heading-color: var(--text-strong);
+    --primary: var(--turquoise);
+    --info: var(--cyan);
+    --success: var(--green);
+    --warning: var(--yellow);
+    --danger: var(--red);
+    --light: var(--white-ter);
+    --dark: var(--grey-darker);
+    --link: var(--blue);
+    --border: var(--grey-lighter);
+    --border-hover: var(--grey-light);
+    --border-light: var(--grey-lightest);
+    --border-light-hover: var(--grey-light);
+    --background: var(--white-ter);
+    --input-arrow: var(--grey-light);
+    --input-disabled-border-color: var(--white-ter);
+    --size-1: 3rem;
+    --size-2: 2.5rem;
+    --size-3: 2rem;
+    --size-4: 1.5rem;
+    --size-5: 1.25rem;
+    --size-6: 1rem;
+    --size-7: 0.75rem;
+    --control-height: 2.25em;
+    --radius: 4px;
+    --family-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --family-monospace: monospace;
+    --render-mode: optimizeLegibility;
+    --modal-background-background-color: rgba(10, 10, 10, 0.86);
+    --family-primary: var(--family-sans-serif);
+    --body-size: 16px;
+    --radius-large: 6px;
+    --body-font-size: 1em;
+    --small-font-size: 0.875em;
+    --modal-close-dimensions: 40px;
+    --modal-close-right: 20px;
+    --modal-close-top: 20px;
+    --weight-normal: 400;
+    --input-color: var(--text-strong);
+    --input-border-color: var(--border);
+    --input-height: var(--control-height);
+    --input-shadow: inset 0 0.0625em 0.125em rgba(var(--dark), 0.05);
+    --input-placeholder-color: rgba(var(--input-color), 0.3);
+    --input-hover-color: var(--text-strong);
+    --input-hover-border-color: var(--border-hover);
+    --input-focus-color: var(--text-strong);
+    --input-focus-border-color: var(--link);
+    --input-focus-box-shadow-size: 0 0 0 0.125em;
+    --input-focus-box-shadow-color: rgba(var(--link), 0.25);
+    --input-radius: var(--radius);
+  }
+  
+  /* TITLE */
+  .swal2-title {
+    color: var(--content-heading-color);
+    font-size: var(--size-3);
+  }
+  
+  /* BACKDROP */
+  .swal2-backdrop {
+    background-color: var(--modal-background-background-color);
+    transition: background-color 0.1s;
+  }
+  
+  /* TYPOGRAPHY */
+  .swal2-popup {
+    font-family: var(--family-primary);
+    font-size: var(--body-size);
+  }
+  
+  /* CONFIRM BUTTON */
+  .swal2-confirm {
+    border: 0;
+    border-radius: var(--radius);
+    background-color: var(--turquoise);
+    color: var(--white);
+    font-size: var(--size-6);
+    box-shadow: 0 0 0 3px rgba(var(--swal2-confirm-button-background-color), 0.5);
+  }
+  
+  /* DENY BUTTON */
+  .swal2-deny {
+    border-radius: var(--radius);
+    background-color: var(--red);
+    color: var(--white);
+    font-size: var(--size-6);
+  }
+  
+  /* CANCEL BUTTON */
+  .swal2-cancel {
+    border: 1px solid var(--grey-lighter);
+    border-radius: var(--radius);
+    background-color: var(--white);
+    color: var(--grey-darker);
+    font-size: var(--size-6);
+  }
+  
+  /* CLOSE BUTTON */
+  .swal2-close {
+    width: var(--modal-close-dimensions);
+    height: var(--modal-close-dimensions);
+    position: fixed;
+    font-size: var(--size-4);
+    color: var(--swal2-white);
+    top: var(--modal-close-top);
+    right: var(--modal-close-right);
+  }
+  
+  /* HTML CONTAINER */
+  .swal2-html-container {
+    font-size: var(--body-size);
+  }
+  
+  /* BOX MODEL */
+  .swal2-popup {
+    border-radius: var(--radius-large);
+    box-shadow: none;
+  }
+  
+  /* ICONS */
+  .swal2-icon {
+    animation: none;
+  }
+  .swal2-icon.swal2-success {
+    border-color: rgba(var(--success), 0.3);
+  }
+  .swal2-icon.swal2-error {
+    background-color: var(--danger);
+  }
+  .swal2-icon.swal2-warning {
+    background-color: var(--warning);
+  }
+  .swal2-icon.swal2-info {
+    background-color: var(--info);
+  }
+  .swal2-icon.swal2-question {
+    background-color: var(--dark);
+  }
+  
+  /* INPUT */
+  .swal2-input {
+    border-radius: var(--radius);
+    box-shadow: inset 0 0.0625em 0.125em rgba(var(--dark), 0.05);
+    transition: initial;
+  }
+  .swal2-input:focus {
+    box-shadow: inset 0 0 0 0.125em rgba(var(--link), 0.25);
+  }
+  
+  /* ANIMATIONS */
+  .swal2-popup {
+    animation: none;
+  }
+  
+  /* TOASTS */
+  .swal2-toast {
+    animation: none;
+    border: 1px solid lighten(var(--swal2-black), 85%);
+  }
+  
+  /* PROGRESS STEPS */
+  .swal2-progress-steps .swal2-progress-step {
+    background: var(--grey-lighter);
+    color: var(--white);
+  }
+  .swal2-progress-steps .swal2-progress-step.swal2-active-step {
+    background: var(--blue);
+    color: var(--white);
+  }
+  
+  .swal2-styled.swal2-cancel {
+    font-weight: var(--weight-normal);
+  }
+  
+  .swal2-validation-message::before {
+    background-color: var(--danger);
+  }
+  
+  .swal2-input:focus,
+  .swal2-file:focus,
+  .swal2-textarea:focus {
+    border: 1px solid var(--input-focus-border-color);
+    box-shadow: var(--input-focus-box-shadow-size) var(--input-focus-box-shadow-color);
+  }
+  
+  .swal2-input[disabled] {
+    border-color: whitesmoke;
+    background-color: whitesmoke;
+    box-shadow: none;
+    color: var(--grey-lighter);
+  }
+  
+  .swal2-select {
+    border: 1px solid var(--grey-lighter);
+    border-radius: var(--radius);
+    color: var(--dark);
+  }
+  
