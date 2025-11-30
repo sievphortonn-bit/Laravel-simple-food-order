@@ -17,21 +17,26 @@
         <div class="collapse navbar-collapse" id="navbarNav">
 
             <ul class="navbar-nav ms-auto align-items-center">
-
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="{{ route('user.home') }}">Home</a>
+                </li>
                 <!-- Foods -->
                 <li class="nav-item">
                     <a class="nav-link fw-semibold" href="{{ route('user.foods') }}">Foods</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="">Contact</a>
+                </li>
                 <!-- Cart -->
                 <li class="nav-item">
                     <a class="nav-link fw-semibold position-relative" href="{{ route('user.cart') }}">
                         <i class="bi bi-cart fs-5"></i>
                         <span class="cart-badge" id="cartCount">
-                            {{ session('cart') ? count(session('cart')) : 0 }}
+                            {{ auth()->check() ? \App\Models\Cart::where('user_id', auth()->id())->count() : 0 }}
                         </span>
                     </a>
                 </li>
+
 
                 <!-- User Dropdown -->
                 <!-- User Section -->
@@ -52,7 +57,7 @@
                     <i class="bi bi-person"></i> Profile
                 </a></li>
 
-                <li><a class="dropdown-item" href="">
+                <li><a class="dropdown-item" href="{{ route('user.orders') }}">
                     <i class="bi bi-receipt"></i> My Orders
                 </a></li>
 

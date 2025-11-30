@@ -9,8 +9,12 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\BakongController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\FoodController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
+
 
 
 
@@ -32,11 +36,15 @@ use Illuminate\Support\Facades\Route;
     Route::get('/foods', [UserController::class, 'foods'])->name('user.foods');
     // Route::get('/food/{id}', [UserController::class, 'foodDetails'])->name('user.food-details');
     Route::get('/food/{slug}', [UserController::class, 'foodDetails'])->name('user.food-details');
-
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/orders', [UserController::class, 'myOrders'])->name('user.orders');
+        Route::get('/orders/{id}', [UserController::class, 'orderDetails'])->name('user.order.view');
+        Route::get('/orders/{id}/invoice', [UserController::class, 'downloadInvoice'])->name('user.invoice.download');
+    });
 
     // Cart
     // Route::post('/cart/add', [UserController::class, 'addToCart'])->name('user.cart.add');
-    Route::post('/cart/add/{id}', [UserController::class, 'addToCart'])->name('user.cart.add');
+    Route::post('/cart/add', [UserController::class, 'addToCart'])->name('user.cart.add');
     Route::get('/clear-cart', function () {
         session()->forget('cart');
         return 'Cart cleared';
@@ -45,6 +53,7 @@ use Illuminate\Support\Facades\Route;
 
     Route::get('/cart', [UserController::class, 'cart'])->name('user.cart');
     Route::get('/cart/remove/{id}', [UserController::class, 'removeItem'])->name('user.cart.remove');
+  
 
     // Checkout
     Route::get('/checkout', [UserController::class, 'checkout'])->name('user.checkout');
@@ -70,6 +79,10 @@ Route::post('/admin/register', [AdminController::class, 'register'])->name('admi
 // ADMIN DASHBOARD (Protected)
 // ---------------------------
 Route::middleware(['admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/users', [UserController::class, 'user'])->name('users');
+    Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::post('/users/{id}/update', [UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
@@ -96,27 +109,21 @@ Route::middleware(['admin'])->prefix('admin')->name('admin.')->group(function ()
     Route::delete('foods/{food}/delete', [FoodController::class, 'destroy'])->name('foods.destroy');
 
     // ORDERS
-    Route::get('orders', [AdminOrderController::class, 'index'])->name('orders.index');
-    Route::get('orders/{id}', [AdminOrderController::class, 'show'])->name('orders.show');
-    Route::post('orders/status/{id}', [AdminOrderController::class, 'updateStatus'])->name('orders.status');
-
+    Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+    Route::post('orders/status/{id}', [OrderController::class, 'updateStatus'])->name('orders.status');
+    Route::post('/orders/{id}/update-status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
+    Route::get('/orders/{id}/invoice', [OrderController::class, 'downloadInvoice'])->name('orders.invoice');
+    
     // REPORTS
-    Route::get('reports', [AdminReportController::class, 'index'])->name('reports.index');
-    Route::post('reports/filter', [AdminReportController::class, 'filter'])->name('reports.filter');
-
-
+     Route::get('/reports', [ReportController::class, 'index'])->name('reports');
+    Route::get('/reports/export', [ReportController::class, 'export'])->name('reports.export');
+    
     Route::get('/bakongkhqr', [BakongController::class, 'bakong'])->name('bakong');
     Route::post('/save-decoded-data', [BakongController::class, 'saveDecodedData'])->name('saveDecodedData');
  
     Route::get('/view-khqr', [BakongController::class, 'viewkhqr'])->name('bakongView');
     
-    // Route::post('/save-token', [RenewtokenController::class, 'saveToken']);
-    // Route::post('/save-token', [RenewtokenController::class, 'saveToken'])->name('saveToken');
-    // Route::post('/save-token', [TokenController::class, 'saveToken']);
-    // Route::post('/save-token', [TokenController::class, 'saveToken']);
-    // Route::post('/save-renew-token', [RenewtokenController::class, 'saveRenewTokenData'])->name('saveRenewtokenData');
-
-    // Route::post('/save-token', [TokenController::class, 'saveToken'])->name('save.token');
-    Route::post('/save-token', [TokenController::class, 'store'])->name('save.token');
+   
 
 });

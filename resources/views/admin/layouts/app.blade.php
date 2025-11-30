@@ -269,7 +269,7 @@
                 <i class="bi bi-speedometer2"></i> <span class="menu-text">Dashboard</span>
             </a></li>
 
-            <li><a href="">
+            <li><a href="{{ route('admin.users') }}" class="{{ request()->is('admin/bakong') ? 'active' : '' }}">
                 <i class="bi bi-people"></i> <span class="menu-text">Users</span>
             </a></li>
             <li><a href="{{ route('admin.bakong') }}" class="{{ request()->is('admin/bakong') ? 'active' : '' }}">
@@ -286,17 +286,17 @@
                 <i class="bi bi-egg-fried"></i> <span class="menu-text">Foods</span>
             </a></li>
 
-            <li><a href="{{ route('admin.orders.index') }}">
+            <li><a href="{{ route('admin.orders.index') }}" class="{{ request()->is('admin/orders') ? 'active' : '' }}">
                 <i class="bi bi-bag"></i> <span class="menu-text">Orders</span>
             </a></li>
 
-            <li><a href="{{ route('admin.reports.index') }}">
+            <li><a href="{{ route('admin.reports') }}" class="{{ request()->is('admin/reports') ? 'active' : '' }}">
                 <i class="bi bi-graph-up"></i> <span class="menu-text">Reports</span>
             </a></li>
 
-            <li><a href="{{ route('admin.logout') }}">
+            {{-- <li><a href="{{ route('admin.logout') }}">
                 <i class="bi bi-box-arrow-right"></i> <span class="menu-text">Logout</span>
-            </a></li>
+            </a></li> --}}
         </ul>
     </div>
     

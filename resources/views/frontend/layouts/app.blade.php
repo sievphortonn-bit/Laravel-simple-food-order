@@ -34,6 +34,22 @@
             border-radius: 12px;
         }
     </style>
+    <style>
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main {
+        flex: 1; /* Pushes footer down */
+    }
+</style>
+
 </head>
 <body>
 
@@ -44,9 +60,46 @@
 </div>
 
 
-<footer class="bg-dark text-white text-center py-3 mt-5">
-    <small>© {{ date('Y') }} FoodOrder. All rights reserved.</small>
+<footer class="bg-dark text-white py-4 mt-auto">
+    <div class="container">
+        <div class="row text-center text-md-start">
+
+            <!-- Brand -->
+            <div class="col-md-4 mb-3">
+                <h5 class="fw-bold">FoodOrder</h5>
+                <p class="small text-white-50">
+                    Delicious food delivered to your door.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4 mb-3">
+                <h6 class="fw-bold">Quick Links</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
+                    <li><a href="#" class="text-white-50 text-decoration-none">Menu</a></li>
+                    <li><a href="#" class="text-white-50 text-decoration-none">Orders</a></li>
+                    <li><a href="#" class="text-white-50 text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-md-4 mb-3">
+                <h6 class="fw-bold">Contact Us</h6>
+                <p class="small text-white-50 mb-1">Phone: +855 123 456 789</p>
+                <p class="small text-white-50 mb-1">Email: support@foodorder.com</p>
+            </div>
+
+        </div>
+
+        <hr class="border-secondary">
+
+        <div class="text-center small text-white-50">
+            © {{ date('Y') }} FoodOrder. All rights reserved.
+        </div>
+    </div>
 </footer>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
