@@ -129,7 +129,7 @@
                 </div>
             </div>
             @empty
-                <p class="text-muted">No foods found!</p>
+                <p class="text-muted">Oop! No foods found!</p>
             @endforelse
         </div>
 
