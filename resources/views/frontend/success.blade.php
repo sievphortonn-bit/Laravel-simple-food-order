@@ -15,7 +15,7 @@
     <!-- Message -->
     <p class="lead mb-4 text-secondary">
         Your order has been successfully placed.<br>
-        We will start preparing your delicious meal right away.
+        We will start preparing your delicious meal right away. Thank you!
     </p>
 
     <!-- Call-to-action buttons -->
